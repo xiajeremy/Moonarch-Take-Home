@@ -1,0 +1,75 @@
+.app {
+  display: flex;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: #0f172a; /* deep navy */
+  color: white;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #38bdf8; /* sky blue */
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.navbar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.navbar-links li {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.navbar-links li:hover {
+  background-color: #1e293b; /* hover highlight */
+  transform: translateX(4px);
+}
+
+
+/* Main content area */
+.main {
+  margin-left: 220px; /* equal to sidebar width */
+  padding: 2rem;
+  flex: 1;
+  background-color: #f1f5f9;
+  overflow-y: auto;
+}
+
+.chart-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.chart-box {
+  width: 400px;
+  height: 400px;
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,88 @@
+.app {
+  display: flex;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: #0f172a; /* deep navy */
+  color: white;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #38bdf8; /* sky blue */
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.navbar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.navbar-links li {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.navbar-links li:hover {
+  background-color: #1e293b; /* hover highlight */
+  transform: translateX(4px);
+}
+
+
+/* Main content area */
+.main {
+  margin-left: 220px; /* equal to sidebar width */
+  padding: 2rem;
+  flex: 1;
+  background-color: #f1f5f9;
+  overflow-y: auto;
+}
+
+.chart-grid {
+  display: flex;
+  flex-wrap: wrap;           /* allow wrapping */
+  gap: 1rem;                 /* space between items */
+  justify-content: center;  /* center items horizontally */
+  align-items: flex-start;  /* align to top */
+}
+
+.chart-box {
+  width: 400px; /* <-- REPLACE flex: 1 1 400px */
+  /* Remove flex if testing fixed width */
+  background-color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+
+
+
+
+.main {
+  margin-left: 220px; /* match sidebar width */
+  padding: 2rem;
+}
+
