@@ -66,8 +66,8 @@
   align-items: flex-start;  /* align to top */
 }
 
-.chart-box {
-  width: 400px; /* <-- REPLACE flex: 1 1 400px */
+.small-chart-box {
+  width: 30%; /* <-- REPLACE flex: 1 1 400px */
   /* Remove flex if testing fixed width */
   background-color: white;
   border-radius: 8px;
@@ -75,14 +75,62 @@
   margin: 0.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+  float: left;
+}
+
+.large-chart-box {
+  width: 40%; /* <-- REPLACE flex: 1 1 400px */
+  /* Remove flex if testing fixed width */
+  background-color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  float: left;
+}
+
+@media (max-width: 768px) {
+  
+}
+
+@media (max-width: 768px) {
+  .main {
+    margin-left: 0px; /* Remove sidebar spacing */
+  }
+  .sidebar {
+    display: none;
+    width: 0%;
+  }
+  .small-chart-box {
+    width: 100%; /* full width on smaller screens */
+  }
+  .large-chart-box {
+    width: 100%; /* full width on smaller screens */
+  }
 }
 
 
-
-
-
-.main {
-  margin-left: 220px; /* match sidebar width */
-  padding: 2rem;
+.table-container {
+  overflow-x: auto;
+  margin-top: 1rem;
+  width: 100%;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+th, td {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+th {
+  background-color: #f1f5f9;
+}
+
 

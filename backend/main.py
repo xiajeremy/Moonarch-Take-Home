@@ -1,6 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 import httpx
 from fastapi.middleware.cors import CORSMiddleware
+from typing import Optional
 
 app = FastAPI()
 
@@ -70,5 +71,35 @@ async def get_height_weight():
 
             output.append({"name": data.json()["name"], "height": data.json()["height"], "weight": data.json()["weight"]})
 
-        print(output)
         return output
+    
+@app.get("/api/all_pokemon")
+async def get_all_pokemon(sort: Optional[str] = Query(None)):
+    async with httpx.AsyncClient() as client:
+        response = []
+        for i in range(1, 100):
+            response.append(await client.get(f"https://pokeapi.co/api/v2/pokemon/{i}"))
+            if i % 100 == 0:
+                print(i)
+        output = []
+
+        for data in response:
+            stats = []
+            for stat in data.json()['stats']:
+                stats.append(stat['base_stat'])
+
+        for data in response:
+            output.append({"name": data.json()["name"], 
+                           "height": data.json()["height"], 
+                           "weight": data.json()["weight"], 
+                           'hp': data.json()['stats'][0]['base_stat'], 
+                           'attack': data.json()['stats'][1]['base_stat'],
+                           'defence': data.json()['stats'][2]['base_stat'], 
+                           'special_attack': data.json()['stats'][3]['base_stat'], 
+                           'special_defence': data.json()['stats'][4]['base_stat'],
+                           'speed': data.json()['stats'][5]['base_stat']})
+            
+        if sort:
+            output = sorted(output, key=lambda x: x[sort])
+        return output
+    
